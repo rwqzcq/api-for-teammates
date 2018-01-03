@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Taoist">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>华师问卷</title>
+    <style>
+        *{ margin: 0; padding: 0; font-family:Microsoft yahei,serif;}
+        li{ list-style-type:none;}
+        a{color:#000;text-decoration:none;}
+    </style>
+    <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <link href="./css/common.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/jquery-labelauty.css">
+    <script src="./js/index.js"></script>
+    <script src="./js/jquery-1.8.3.min.js"></script>
+    <script src="./js/jquery-labelauty.js"></script>
+</head>
+<body>
+    <h2 class="Btitle">停水停电学校大调查</h2>
+    <div class="container-fluid Box">
+        <ul class="content list-group">
+            <li class="list-group-item Radio">
+                <p class="list-group-item-heading"><span class="Cindex">1</span><span>. </span>这是一个单选题<em class="isMust">*</em></p>
+                <!-- id动态生成，格式为Cindex-type-选项序列 || 每个input标签的name属性为题目序号（必须一致）-->
+                <ul class="answerBox ">
+                    <li class="answer list-group-item-text">
+                        <input type="radio" name="1" value="1" id="1-Radio-1" class="labelauty">
+                        <label class="answerName" for="1-Radio-1">
+                            <span class="labelauty-unchecked-image"></span>
+                            <span class="labelauty-unchecked">A 123456</span>
+                            <span class="labelauty-checked-image"></span>
+                            <span class="labelauty-checked">A 123456</span>
+                        </label>
+                    </li>
+                    <li class="answer list-group-item-text">
+                        <input type="radio" name="1" value="2" id="1-Radio-2" class="labelauty">
+                        <label class="answerName" for="1-Radio-2">
+                            <span class="labelauty-unchecked-image"></span>
+                            <span class="labelauty-unchecked">B 123456</span>
+                            <span class="labelauty-checked-image"></span>
+                            <span class="labelauty-checked">B 123456</span>
+                        </label>
+                    </li>
+                    <li class="answer list-group-item-text">
+                        <input type="radio" name="1" value="3" id="1-Radio-3" class="labelauty">
+                        <label class="answerName" for="1-Radio-3">
+                            <span class="labelauty-unchecked-image"></span>
+                            <span class="labelauty-unchecked">C 123456</span>
+                            <span class="labelauty-checked-image"></span>
+                            <span class="labelauty-checked">C 123456</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li class="list-group-item button-holder">
+                <!--.Cindex存放题号，动态生成-->
+                <p class="list-group-item-heading"><span class="Cindex">2</span><span>. </span>这是一个多选题<em class="isMust">*</em></p>
+                <ul class="answerBox Checkbox">
+                    <!-- id动态生成，格式为Cindex-type-选项序列-->
+                    <li class="answer list-group-item-text">
+                        <input type="checkbox" name="2" value="1" id="2-Radio-1" class="labelauty">
+                        <label class="answerName" for="2-Radio-1">
+                            <span class="labelauty-unchecked-image"></span>
+                            <span class="labelauty-unchecked">A 123456</span>
+                            <span class="labelauty-checked-image"></span>
+                            <span class="labelauty-checked">A 123456</span>
+                        </label>
+                    </li>
+                    <li class="answer list-group-item-text">
+                        <input type="checkbox" name="2" value="2" id="2-Radio-2" class="labelauty">
+                        <label class="answerName" for="2-Radio-2">
+                            <span class="labelauty-unchecked-image"></span>
+                            <span class="labelauty-unchecked">B 123456</span>
+                            <span class="labelauty-checked-image"></span>
+                            <span class="labelauty-checked">B 123456</span>
+                        </label>
+                    </li>
+                    <li class="answer list-group-item-text">
+                        <input type="checkbox" name="2" value="3" id="2-Radio-3" class="labelauty">
+                        <label class="answerName" for="2-Radio-3">
+                            <span class="labelauty-unchecked-image"></span>
+                            <span class="labelauty-unchecked">C 123456</span>
+                            <span class="labelauty-checked-image"></span>
+                            <span class="labelauty-checked">C 123456</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li class="list-group-item TianKong">
+                <p class="list-group-item-heading"><span class="Cindex">3</span><span>. </span>这是一个填空题<em class="isMust">*</em></p>
+                <div class="answerBox">
+                    <p class="answer list-group-item-text">您每月的花费是<input type="text" class="answerTianKong" name="o3">元。您觉得您应该得到<input type="text" class="answerTianKong" name="o3">元。</p>
+                </div>
+            </li>
+            <li class="list-group-item XiaLa">
+                <p class="list-group-item-heading"><span class="Cindex">4</span><span>. </span>这是一个下拉选框-您的年级是？<em class="isMust">*</em></p>
+                <div class="answerBox">
+                    <p class="answer list-group-item-text">
+                        <select name="3" id="">
+                            <option value="1">大一</option>
+                            <option value="2">大二</option>
+                            <option value="3">大三</option>
+                            <option value="4">大四</option>
+                        </select>
+                    </p>
+                </div>
+            </li>
+            <li class="list-group-item DanhangText">
+                <p class="list-group-item-heading"><span class="Cindex">5</span><span>. </span>这是单行文本-你的个性签名是？<em class="isMust">*</em></p>
+                <div class="answerBox">
+                    <p class="answer list-group-item-text">
+                        <input type="text" name="5" class="oneLine">
+                    </p>
+                </div>
+            </li>
+            <li class="list-group-item DuohangText">
+                <p class="list-group-item-heading"><span class="Cindex">6</span><span>. </span>这是多行文本-你对这次问卷有什么建议或意见？<em class="isMust">*</em></p>
+                <div class="answerBox">
+                    <p class="answer list-group-item-text">
+                        <textarea name="6" class="duoLine"></textarea>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script></script>
+</body>
+</html>

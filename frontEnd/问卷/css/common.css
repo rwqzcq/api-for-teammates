@@ -1,0 +1,60 @@
+.Box{
+    height: 500px;
+}
+.Btitle{
+    width: 100%;
+    text-align: center;
+    font-family: "Microsoft JhengHei Light", Sans-serif, serif;
+    border-bottom: 1px solid #ccc;
+    background: #15a0e8;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.list-group .list-group-item-heading{
+    background: #65b9ec;
+    height: 30px;
+    text-align: left;
+    color: #fff;
+    border-radius: 10px;
+    text-indent: 1em;
+    font: 16px/30px "Microsoft YaHei UI Light";
+}
+.list-group .list-group-item-heading span,em{
+    line-height: 30px;
+}
+.list-group .list-group-item{
+    margin-bottom: 10px;
+}
+.list-group .list-group-item .isMust{
+    float: right;
+    color: #f00;
+    margin-right: 15px;
+}
+.list-group .list-group-item .answerBox .answer .answerTianKong{
+    width: 50px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #000;
+    text-align: center;
+}
+.list-group .list-group-item .answerBox{
+    width: 100%;
+}
+.list-group .list-group-item .answerBox select{
+    outline: none;
+}
+.list-group .list-group-item .answerBox .oneLine{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: 1px solid #373737;
+    font: 14px/25px "Microsoft YaHei";
+    text-indent:5px;
+}
+.list-group .list-group-item .answerBox .duoLine{
+    width: 100%;
+    height: 100px;
+    outline: none;
+    border: 1px solid #000;
+}
+
