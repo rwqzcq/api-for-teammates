@@ -1,0 +1,119 @@
+.Btitle{
+    width: 100%;
+    text-align: center;
+    font-family: "Microsoft JhengHei Light", Sans-serif, serif;
+    border-bottom: 1px solid #ccc;
+    background: #15a0e8;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.list-group .list-group-item{
+    border: none;
+    padding: 0;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ccc;
+}
+.list-group .list-group-item:last-child{
+    padding: 0;
+    border: none;
+}
+.list-group .list-group-item-heading,.Cindex{
+    background: #65b9ec;
+    height: 30px;
+    text-align: left;
+    border-radius: 10px;
+    text-indent: 1em;
+    font: 16px/30px "Microsoft YaHei";
+    color: #ffffff;
+    font-weight: bold;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    
+}
+.list-group .list-group-item-heading span{
+    font-size: 14px;
+    line-height: 30px;
+    color: #fff;
+    font-weight: 100;
+}
+
+.list-group .list-group-item .dataBox{
+    width: 100%;
+    border: 1px solid #b2b4b9;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.list-group .list-group-item .dataBox .datalist{
+    position: relative;
+    float: left;
+    text-align: center;
+}
+.list-group .list-group-item .dataBox .datalist.list1{
+    width: 55%;
+    border-right: 1px solid #b2b4b9;
+}
+.list-group .list-group-item .dataBox .datalist.list2{
+    width: 20%;
+    border-right: 1px solid #b2b4b9;
+}
+.list-group .list-group-item .dataBox .datalist.list3{
+    width: 25%;
+}
+.list-group .list-group-item .dataBox .datalist .listFirst{
+    position: relative;
+    border-bottom:1px solid #b2b4b9;
+}
+.list-group .list-group-item .dataBox .datalist .listLast{
+    border-top: 1px solid #b2b4b9;
+}
+.list-group .list-group-item .dataBox .datalist .listFirst,.listLast{
+    height: 52px;
+    background: #e4e7ec;
+    font: 18px/52px "Microsoft YaHei";
+}
+.list-group .list-group-item .dataBox .datalist .listFirst .tran{
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 50%;
+    margin-right:  -26px;
+    width: 0;
+    height: 0;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+}
+.list-group .list-group-item .dataBox .datalist .listFirst .tranUp{
+    border-bottom: 6px solid #919398;
+}
+.list-group .list-group-item .dataBox .datalist .listFirst .tranDown{
+    top: 28px;
+    border-top: 6px solid #919398;
+}
+
+.list-group .list-group-item .dataBox .datalist .listIndex{
+    border-top: 1px solid #b2b4b9;
+    font: 18px/50px "Microsoft JhengHei Light";
+}
+.list-group .list-group-item .dataBox .datalist .listIndex1{
+    border-top: none;
+}
+
+div.button{
+    width: 100px;
+    height: 45px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    background: #15a0e8;
+    margin: 20px auto;
+    text-align: center;
+    font: 16px/45px "Microsoft YaHei UI";
+    color: #fff;
+    user-select: none;
+}
+div.button:active{
+    background: #147eba;
+}
