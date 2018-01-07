@@ -19,7 +19,7 @@
 </head>
 <body>
     <h2 class="Btitle">食堂调查统计</h2>
-    <div class="container-fluid Box">
+    <div class="container-fluid Box" id="ContentBox">
         <ul class="content list-group">
             <!--每一个list-group-item代表一道题目，有single与more两种类型（但是并没有什么区别，名字只是用于区分）-->
             <li class="list-group-item single">
@@ -215,11 +215,11 @@
                 pagesplit: true
             };
             var $title = $(".Btitle");
-            pdf.addHTML(document.body,options,function() {
+            pdf.addHTML(document.getElementById("ContentBox"),options,function() {
                 pdf.save($title.html()+'.pdf');
             });
         });
-
+        var $oLi = $(".list-group-item")
     </script>
 </body>
 </html>

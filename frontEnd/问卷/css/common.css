@@ -1,5 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+*:focus{
+    outline: 0;
+}
 .Box{
-    height: 500px;
+    overflow: hidden;
 }
 .Btitle{
     width: 100%;
@@ -9,6 +16,39 @@
     background: #15a0e8;
     color: #fff;
     margin-bottom: 20px;
+}
+.progressBar{
+    position: fixed;
+    top: 43px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    padding: 0 10px;
+    background: #fff;
+    z-index: 1;
+}
+.progressBar.on{
+    top: 0px;
+}
+.progressBar .barContainer{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #000;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.progressBar .barContainer .bar{
+    width: 10%;
+    height: 100%;
+    background: #65b9ec;
+    -webkit-transition: .5s ;
+    -moz-transition: .5s ;
+    -ms-transition: .5s ;
+    -o-transition: .5s ;
+    transition: .5s ;
+}
+#ContentBox{
+    max-width: 900px;
 }
 .list-group .list-group-item-heading{
     background: #65b9ec;
@@ -23,12 +63,14 @@
     line-height: 30px;
 }
 .list-group .list-group-item{
+    position: relative;
     margin-bottom: 10px;
 }
 .list-group .list-group-item .isMust{
-    float: right;
+    position: absolute;
+    top: 15px;
+    right: 30px;
     color: #f00;
-    margin-right: 15px;
 }
 .list-group .list-group-item .answerBox .answer .answerTianKong{
     width: 50px;
@@ -57,4 +99,62 @@
     outline: none;
     border: 1px solid #000;
 }
+.submitBox{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 10px;
+}
+.submit{
+    display: block;
+    width: 35%;
+    height: 100%;
+    margin: auto;
+    border: none;
+    outline: none;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    background: #65b9ec;
+    color: #fff;
+}
+.submit:active{
+    background: #509cc4;
+    outline: none;
+}
+.submit:focus{
+    outline: none;
+}
 
+.alert{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 200px;
+    height: 160px;
+    border: 1px solid #509cc4;
+    background: #fff;
+    color: #000;
+}
+.alert .close{
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    user-select: none;
+    cursor: pointer;
+}
+.alert .alertTit{
+    color: #f00;
+    font-weight: bold;
+}
+.alert .alertCon span{
+    color: #f00;
+}

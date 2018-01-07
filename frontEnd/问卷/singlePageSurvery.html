@@ -14,13 +14,19 @@
     <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
     <link href="./css/common.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/jquery-labelauty.css">
-    <script src="./js/index.js"></script>
     <script src="./js/jquery-1.8.3.min.js"></script>
     <script src="./js/jquery-labelauty.js"></script>
+    <script src="./js/index.js"></script>
 </head>
 <body>
     <h2 class="Btitle">停水停电学校大调查</h2>
-    <div class="container-fluid Box">
+    <!--进度条-->
+    <div class="progressBar">
+        <div class="barContainer">
+            <div class="bar"></div>
+        </div>
+    </div>
+    <div class="container-fluid Box" id="ContentBox">
         <ul class="content list-group">
             <li class="list-group-item Radio">
                 <p class="list-group-item-heading"><span class="Cindex">1</span><span>. </span>这是一个单选题<em class="isMust">*</em></p>
@@ -61,8 +67,8 @@
                 <ul class="answerBox Checkbox">
                     <!-- id动态生成，格式为Cindex-type-选项序列-->
                     <li class="answer list-group-item-text">
-                        <input type="checkbox" name="2" value="1" id="2-Radio-1" class="labelauty">
-                        <label class="answerName" for="2-Radio-1">
+                        <input type="checkbox" name="2" value="1" id="2-Checkbox-1" class="labelauty">
+                        <label class="answerName" for="2-Checkbox-1">
                             <span class="labelauty-unchecked-image"></span>
                             <span class="labelauty-unchecked">A 123456</span>
                             <span class="labelauty-checked-image"></span>
@@ -70,8 +76,8 @@
                         </label>
                     </li>
                     <li class="answer list-group-item-text">
-                        <input type="checkbox" name="2" value="2" id="2-Radio-2" class="labelauty">
-                        <label class="answerName" for="2-Radio-2">
+                        <input type="checkbox" name="2" value="2" id="2-Checkbox-2" class="labelauty">
+                        <label class="answerName" for="2-Checkbox-2">
                             <span class="labelauty-unchecked-image"></span>
                             <span class="labelauty-unchecked">B 123456</span>
                             <span class="labelauty-checked-image"></span>
@@ -79,8 +85,8 @@
                         </label>
                     </li>
                     <li class="answer list-group-item-text">
-                        <input type="checkbox" name="2" value="3" id="2-Radio-3" class="labelauty">
-                        <label class="answerName" for="2-Radio-3">
+                        <input type="checkbox" name="2" value="3" id="2-Checkbox-3" class="labelauty">
+                        <label class="answerName" for="2-Checkbox-3">
                             <span class="labelauty-unchecked-image"></span>
                             <span class="labelauty-unchecked">C 123456</span>
                             <span class="labelauty-checked-image"></span>
@@ -120,12 +126,112 @@
                 <p class="list-group-item-heading"><span class="Cindex">6</span><span>. </span>这是多行文本-你对这次问卷有什么建议或意见？<em class="isMust">*</em></p>
                 <div class="answerBox">
                     <p class="answer list-group-item-text">
-                        <textarea name="6" class="duoLine"></textarea>
+                        <textarea type="textarea" name="6" class="duoLine"></textarea>
                     </p>
                 </div>
             </li>
         </ul>
     </div>
-    <script></script>
+    <div class="submitBox">
+        <button class="submit">提交</button>
+    </div>
+    <div class="alert">
+        <span class="close">X</span>
+        <h6 class="alertTit">！您有必填空未填写</h6>
+        <hr>
+        <p class="alertCon">请完成它们</p>
+    </div>
+    <script>
+        var $oPbar = $(".progressBar"),
+            $oBar = $(".bar");
+
+        $(document).scroll(function (e) {
+            e = window.event || e;
+            if ($(document).scrollTop()>=40){
+                $oPbar.addClass("on");
+            }else {
+                $oPbar.removeClass("on");
+            }
+        });
+
+
+        //提交事件
+        var $btn = $(".submit");
+        var $alert = $(".alert");
+        $btn.click(function () {
+            var $oLi = $(".list-group-item-heading .isMust").parent().parent();
+            var status = 0;//0为正常，1为有未填空
+            var index=[];//存放空题题号0开始
+            var indexI = 0;
+            // 检测必填空
+            for (var i = 0;i<$oLi.length;i++){
+                var $oInput = ($oLi.eq(i).children(".answerBox").children(".answer").children("input").length === 0) ? $oLi.eq(i).children(".answerBox").children(".answer").children(".duoLine") : $oLi.eq(i).children(".answerBox").children(".answer").children("input") ;
+                $oInput.attr("index",i);
+                // console.log($oInput);
+                switch ($oInput.attr("type")){
+                    case "radio":
+                        var $checked = $oInput.parent().children(".answerName").children(".labelauty-checked");
+                        var stas = "none";
+                        for (var j =0;j<$checked.length;j++){
+                            stas = ((stas === "none") ? $checked.eq(j).css("display") : stas);
+                        }
+                        if (stas === "none"){
+                            status = 1;
+                            index[indexI] = $oInput.attr("index");
+                            indexI++;
+                        }
+                        break;
+                    case "checkbox":
+                        var $checked = $oInput.parent().children(".answerName").children(".labelauty-checked");
+                        var stas = "none";
+                        for (var j =0;j<$checked.length;j++){
+                            stas = ((stas === "none") ? $checked.eq(j).css("display") : stas);
+                        }
+                        if (stas === "none"){
+                            status = 1;
+                            index[indexI] = $oInput.attr("index");
+                            indexI++;
+                        }
+                        break;
+                    case "text":
+                        for (var j = 0;j<$oInput.length;j++){
+                            if (!$oInput.eq(j).val()){
+                                status = 1;
+                                index[indexI] = $oInput.attr("index");
+                                indexI++;
+                            }
+                        }
+                        break;
+                    case "textarea":
+                        if (!$oInput.eq(0).val()){
+                            status = 1;
+                            index[indexI] = $oInput.attr("index");
+                            indexI++;
+                        }
+                        break;
+                    default:
+                        break;
+
+                }
+                // console.log($oInput.attr("type"))
+            }
+            console.log(status,index);
+            //有未填空
+            if (status === 1){
+                $alert.show();
+                var $con = $alert.children(".alertCon");
+                for (var j =0 ;j<index.length;j++){
+                    var elem = document.createElement("span");
+                    elem.innerHTML = parseInt(index[j])+1+"题";
+                    $con[0].appendChild(elem);
+                }
+                $alert.children(".close").click(function () {
+                    $alert.css("display","none");
+                })
+            }else {//无未填空，可以提交
+
+            }
+        })
+    </script>
 </body>
 </html>
