@@ -25,56 +25,74 @@
             <li class="list-group-item single">
                 <!--Cindex为题号，content为内容，Ctype为题目类型-->
                 <p class="list-group-item-heading">第<span class="Cindex"> 1 </span>题：<span class="content">你喜欢华师的哪一个食堂？</span><span class="Ctype">[单选题]</span></p>
-                <!--dataBox是用于存放每一列的大盒子-->
+                <!--dataBox是用于存放每一行的大盒子-->
                 <div class="dataBox">
-                    <!--datalist为列，共有三列-->
-                    <ul class="datalist list1">
+                    <!--datalist为行，每一行有三列（即三个li）-->
+                    <ul class="datalist listHead">
                         <!--listFirst与listLast为固定内容（.datalist.list2 .listLast .number为动态内容，存放有效填写人次）-->
-                        <li class="listFirst">选项<span class="tran tranUp"></span><span class="tran tranDown"></span></li>
-                        <!--listIndex是为每一个选项依次用1、2、3...标识-->
-                        <li class="listIndex listIndex1">东一</li>
-                        <li class="listIndex listIndex2">东二</li>
-                        <li class="listIndex listIndex3">学子</li>
-                        <li class="listLast">本题有效填写人次</li>
-                    </ul>
-                    <ul class="datalist list2">
-                        <li class="listFirst">小计<span class="tran tranUp"></span><span class="tran tranDown"></span></li>
-                        <li class="listIndex listIndex1">1</li>
-                        <li class="listIndex listIndex2">2</li>
-                        <li class="listIndex listIndex3">3</li>
-                        <li class="listLast"><span class="number">11</span></li>
-                    </ul>
-                    <ul class="datalist list3">
+                        <li class="listFirst">选项</li>
+                        <li class="listFirst">小计</li>
                         <li class="listFirst">比例</li>
+                    </ul>
+                    <!--.list是用于存放每一个选项的数据-->
+                    <!--。list下的class类名listIdenx1、2、3...只是用做区分每个选项，并不影响布局样式-->
+                    <ul class="datalist list list1">
+                        <li class="listIndex listIndex1">东一</li>
+                        <li class="listIndex listIndex1">1</li>
                         <li class="listIndex listIndex1"><span class="bili">16</span>%</li>
+                    </ul>
+                    <ul class="datalist list list2">
+                        <li class="listIndex listIndex2">东二</li>
+                        <li class="listIndex listIndex2">2</li>
                         <li class="listIndex listIndex2"><span class="bili">34</span>%</li>
+                    </ul>
+                    <ul class="datalist list list3">
+                        <li class="listIndex listIndex3">学子</li>
+                        <li class="listIndex listIndex3">3</li>
                         <li class="listIndex listIndex3"><span class="bili">50</span>%</li>
+                    </ul>
+                    <ul class="datalist list list4">
+                        <li class="listIndex listIndex4">桂香园</li>
+                        <li class="listIndex listIndex4">0</li>
+                        <li class="listIndex listIndex4"><span class="bili">0</span>%</li>
+                    </ul>
+                    <!--。listFoot是每个数据表格的底部，用于显示填写人次-->
+                    <ul class="datalist listFoot">
+                        <li class="listLast">本题有效填写人次</li>
+                        <li class="listLast"><span class="number">11</span></li>
                         <li class="listLast"></li>
                     </ul>
                 </div>
             </li>
             <li class="list-group-item more">
                 <p class="list-group-item-heading">第<span class="Cindex"> 2 </span>题：<span class="content">你最爱吃什么？</span><span class="Ctype">[多选题]</span></p>
+                <!--dataBox是用于存放每一行的大盒子-->
                 <div class="dataBox">
-                    <ul class="datalist list1">
-                        <li class="listFirst">选项<span class="tran tranUp"></span><span class="tran tranDown"></span></li>
-                        <li class="listIndex listIndex1">黄焖鸡</li>
-                        <li class="listIndex listIndex2">油麦菜</li>
-                        <li class="listIndex listIndex3">一坨屎</li>
-                        <li class="listLast">本题有效填写人次</li>
-                    </ul>
-                    <ul class="datalist list2">
-                        <li class="listFirst">小计<span class="tran tranUp"></span><span class="tran tranDown"></span></li>
-                        <li class="listIndex listIndex1">1</li>
-                        <li class="listIndex listIndex2">2</li>
-                        <li class="listIndex listIndex3">3</li>
-                        <li class="listLast"><span class="number">11</span></li>
-                    </ul>
-                    <ul class="datalist list3">
+                    <!--datalist为行，每一行有三列（即三个li）-->
+                    <ul class="datalist listHead">
+                        <!--listFirst与listLast为固定内容（.datalist.list2 .listLast .number为动态内容，存放有效填写人次）-->
+                        <li class="listFirst">选项</li>
+                        <li class="listFirst">小计</li>
                         <li class="listFirst">比例</li>
+                    </ul>
+                    <ul class="datalist list list1">
+                        <li class="listIndex listIndex1">东一</li>
+                        <li class="listIndex listIndex1">1</li>
                         <li class="listIndex listIndex1"><span class="bili">16</span>%</li>
+                    </ul>
+                    <ul class="datalist list list2">
+                        <li class="listIndex listIndex2">东二</li>
+                        <li class="listIndex listIndex2">2</li>
                         <li class="listIndex listIndex2"><span class="bili">34</span>%</li>
+                    </ul>
+                    <ul class="datalist list list3">
+                        <li class="listIndex listIndex3">学子</li>
+                        <li class="listIndex listIndex3">3</li>
                         <li class="listIndex listIndex3"><span class="bili">50</span>%</li>
+                    </ul>
+                    <ul class="datalist listFoot">
+                        <li class="listLast">本题有效填写人次</li>
+                        <li class="listLast"><span class="number">11</span></li>
                         <li class="listLast"></li>
                     </ul>
                 </div>

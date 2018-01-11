@@ -156,23 +156,25 @@
 
 
         //提交事件
-        var $btn = $(".submit");
-        var $alert = $(".alert");
+        const $btn = $(".submit");
+        const $alert = $(".alert");
         $btn.click(function () {
-            var $oLi = $(".list-group-item-heading .isMust").parent().parent();
-            var status = 0;//0为正常，1为有未填空
-            var index=[];//存放空题题号0开始
-            var indexI = 0;
+            const $oLi = $(".list-group-item-heading .isMust").parent().parent();
+            let status = 0;//0为正常，1为有未填空
+            let index=[];//存放空题题号0开始
+            let indexI = 0;
             // 检测必填空
-            for (var i = 0;i<$oLi.length;i++){
-                var $oInput = ($oLi.eq(i).children(".answerBox").children(".answer").children("input").length === 0) ? $oLi.eq(i).children(".answerBox").children(".answer").children(".duoLine") : $oLi.eq(i).children(".answerBox").children(".answer").children("input") ;
+            for (let i = 0; i<$oLi.length; i++){
+                let $oInput = ($oLi.eq(i).children(".answerBox").children(".answer").children("input").length === 0) ? $oLi.eq(i).children(".answerBox").children(".answer").children(".duoLine") : $oLi.eq(i).children(".answerBox").children(".answer").children("input");
                 $oInput.attr("index",i);
                 // console.log($oInput);
+                let j =0;
+                let stas = "none";
                 switch ($oInput.attr("type")){
                     case "radio":
                         var $checked = $oInput.parent().children(".answerName").children(".labelauty-checked");
-                        var stas = "none";
-                        for (var j =0;j<$checked.length;j++){
+                        stas = "none";
+                        for (j =0;j<$checked.length;j++){
                             stas = ((stas === "none") ? $checked.eq(j).css("display") : stas);
                         }
                         if (stas === "none"){
@@ -183,8 +185,8 @@
                         break;
                     case "checkbox":
                         var $checked = $oInput.parent().children(".answerName").children(".labelauty-checked");
-                        var stas = "none";
-                        for (var j =0;j<$checked.length;j++){
+                        stas = "none";
+                        for (j =0;j<$checked.length;j++){
                             stas = ((stas === "none") ? $checked.eq(j).css("display") : stas);
                         }
                         if (stas === "none"){
@@ -194,7 +196,7 @@
                         }
                         break;
                     case "text":
-                        for (var j = 0;j<$oInput.length;j++){
+                        for (j = 0;j<$oInput.length;j++){
                             if (!$oInput.eq(j).val()){
                                 status = 1;
                                 index[indexI] = $oInput.attr("index");
@@ -219,9 +221,10 @@
             //有未填空
             if (status === 1){
                 $alert.show();
-                var $con = $alert.children(".alertCon");
-                for (var j =0 ;j<index.length;j++){
-                    var elem = document.createElement("span");
+                let $con = $alert.children(".alertCon");
+                $con.html("");
+                for (j =0 ;j<index.length;j++){
+                    let elem = document.createElement("span");
                     elem.innerHTML = parseInt(index[j])+1+"题";
                     $con[0].appendChild(elem);
                 }
